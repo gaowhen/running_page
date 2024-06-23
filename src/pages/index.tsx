@@ -3,8 +3,8 @@ import { Analytics } from '@vercel/analytics/react';
 import Layout from '@/components/Layout';
 import LocationStat from '@/components/LocationStat';
 import RunMap from '@/components/RunMap';
-import RunTable from '@/components/RunTable';
-import SVGStat from '@/components/SVGStat';
+// import RunTable from '@/components/RunTable';
+// import SVGStat from '@/components/SVGStat';
 import YearsStat from '@/components/YearsStat';
 import useActivities from '@/hooks/useActivities';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
@@ -53,7 +53,7 @@ const Index = () => {
     }
     setActivity(filterAndSortRuns(activities, item, func, sortDateFunc));
     setRunIndex(-1);
-    setTitle(`${item} ${name} Running Heatmap`);
+    setTitle(`${item} ${name} Cycling Heatmap`);
   };
 
   const changeYear = (y: string) => {
@@ -186,7 +186,7 @@ const Index = () => {
           <YearsStat year={year} onClick={changeYear} />
         )}
       </div>
-      <div className="w-full lg:w-2/3">
+      <div className="w-full">
         <RunMap
           title={title}
           viewState={viewState}
@@ -195,7 +195,7 @@ const Index = () => {
           changeYear={changeYear}
           thisYear={year}
         />
-        {year === 'Total' ? (
+        {/* {year === 'Total' ? (
           <SVGStat />
         ) : (
           <RunTable
@@ -205,7 +205,7 @@ const Index = () => {
             runIndex={runIndex}
             setRunIndex={setRunIndex}
           />
-        )}
+        )} */}
       </div>
       {/* Enable Audiences in Vercel Analytics: https://vercel.com/docs/concepts/analytics/audiences/quickstart */}
       <Analytics />
